@@ -1,12 +1,12 @@
 import { useCart } from "../context/CartContext"
 
-const CartButton = ({item}) => {
+const CartButton = ({item,fromCart}) => {
 
   const{addToCart,removeFromCart,updateQuality} = useCart()
 
   return (
-    <div className='absolute w-max top-4 right-2'>
-      <div className="space-x-2">
+    <div className={`absolute w-max top-4 right-2 ${fromCart && 'scale-90'}`}>
+      <div className="space-x-2 ">
         {!item.inCart ? (
           <button 
             onClick={() => addToCart(item)}
